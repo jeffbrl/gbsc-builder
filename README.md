@@ -1,6 +1,6 @@
-# Project Title
+# GBSC-Builder
 
-GBSC-Builder
+Build the gbs-control firmware in a docker container.
 
 ## Description
 
@@ -13,7 +13,7 @@ container makes building the firmware simple.
 
 This should work on any recent docker version on x86.
 
-### Executing program
+### Executing the build
 
 This container image is available on Docker Hub.
 
