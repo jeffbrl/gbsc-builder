@@ -64,7 +64,7 @@ WifInfo                         esp8266:esp8266:wifinfo
 XinaBox CW01                    esp8266:esp8266:cw01
 ```
 
-Note that these are the board provided by the esp8266 board manager. I suspect
+Note that these are the boards provided by the esp8266 board manager. I suspect
 many of these boards will not work with gbs-control so consult the [gbs-control
 documentation](https://ramapcsx2.github.io/gbs-control/) if you are unsure.
 
@@ -98,4 +98,5 @@ This project is licensed under the Apache License 2.0 - see the LICENSE.txt file
 
 ## Acknowledgments
 
-Credits to rama for sharing the [gbs-control firmware](https://github.com/ramapcsx2/gbs-control).
+Credits to rama for sharing the [gbs-control firmware](https://github.com/ramapcsx2/gbs-control). I am
+not associated with rama or the gbs-control project.
