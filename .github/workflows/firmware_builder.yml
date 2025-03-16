@@ -13,20 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     env:
       OUTPUT_DIR: /home/runner/work/output
+      CONTAINER_TAG: v0.1
 
     steps:
 
-    - name: Check out code
-      uses: actions/checkout@v3
-
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag jeffbrl/gbsc-builder:${{ github.sha }}
-
     - name: Build gbsc firmware
-      run: mkdir $OUTPUT_DIR && docker run -v $OUTPUT_DIR:/app/output jeffbrl/gbsc-builder:${{ github.sha }}
+      run: mkdir $OUTPUT_DIR && docker run -v $OUTPUT_DIR:/app/output jeffbrl/gbsc-builder:$CONTAINER_TAG
 
     - name: Upload firmware
       uses: actions/upload-artifact@v4
       with:
-        name: gbs-control.ino.bin
-        path: $OUTPUT_DIR
+        name: gbsc_firmware
+        path: $OUTPUT_DIR/gbs-control.ino.bin
