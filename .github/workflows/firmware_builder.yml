@@ -23,10 +23,10 @@ jobs:
       run: docker build . --file Dockerfile --tag jeffbrl/gbsc-builder:${{ github.sha }}
 
     - name: Build gbsc firmware
-      run: mkdir ${{ OUTPUT_DIR }} && docker run -v ${{ OUTPUT_DIR }}:/app/output jeffbrl/gbsc-builder:${{ github.sha }}
+      run: mkdir $OUTPUT_DIR && docker run -v $OUTPUT_DIR:/app/output jeffbrl/gbsc-builder:${{ github.sha }}
 
     - name: Upload firmware
       uses: actions/upload-artifact@v4
       with:
         name: gbs-control.ino.bin
-        path: ${{ OUTPUT_DIR }}
+        path: $OUTPUT_DIR
