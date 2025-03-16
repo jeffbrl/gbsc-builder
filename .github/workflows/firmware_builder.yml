@@ -17,10 +17,19 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag jeffbrl/gbsc-builder:${{ github.sha }}
 
-  firmwarebuild:
+  listimages:
 
     runs-on: ubuntu-latest
     needs: [ containerbuild ]
+    steps:
+    - uses: actions/checkout@v4
+    - name: List images
+      run: docker images
+
+  firmwarebuild:
+
+    runs-on: ubuntu-latest
+    needs: [ containerbuild, listimages ]
     steps:
     - uses: actions/checkout@v4
     - name: Build gbsc firmware
