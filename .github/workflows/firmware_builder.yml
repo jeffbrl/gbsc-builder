@@ -19,11 +19,8 @@ jobs:
     - name: Build gbsc firmware
       run: docker run -v /home/runner/work:/app/output jeffbrl/gbsc-builder:$CONTAINER_TAG
 
-    - name: Show dir contents
-      run: ls -la /home/runner/work
-
     - name: Upload firmware
       uses: actions/upload-artifact@v4
       with:
-        name: gbsc_firmware
-        path: gbs-control.ino.bin
+        name: gbs-control.ino.bin
+        path: /home/runner/work/gbs-control.ino.bin
