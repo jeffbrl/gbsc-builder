@@ -1,0 +1,46 @@
+name: Build gbs-control firmware
+
+on:
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ "*" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      CONTAINER_TAG: v0.1
+
+    steps:
+
+    - name: Build gbsc firmware for Wemos D1
+      run: docker run -v /home/runner/work:/app/output jeffbrl/gbsc-builder:$CONTAINER_TAG
+
+    - name: Upload firmware for Wemos D1
+      uses: actions/upload-artifact@v4
+      with:
+        name: wemosd1-gbs-control.ino.bin
+        path: /home/runner/work/gbs-control.ino.bin
+
+    - name: Build gbsc firmware for NodeMCU 0.9
+      run: docker run -v /home/runner/work:/app/output jeffbrl/gbsc-builder:$CONTAINER_TAG esp8266:esp8266:nodemcu
+
+    - name: Upload firmware for NodeMCU 0.9
+      uses: actions/upload-artifact@v4
+      with:
+        name: nodemcu0.9-gbs-control.ino.bin
+        path: /home/runner/work/gbs-control.ino.bin
+
+    - name: Build gbsc firmware for NodeMCU 1.0
+      run: docker run -v /home/runner/work:/app/output jeffbrl/gbsc-builder:$CONTAINER_TAG esp8266:esp8266:nodemcuv2
+
+    - name: Upload firmware for NodeMCU 1.0
+      uses: actions/upload-artifact@v4
+      with:
+        name: nodemcuv2-gbs-control.ino.bin
+        path: /home/runner/work/gbs-control.ino.bin
+
+
