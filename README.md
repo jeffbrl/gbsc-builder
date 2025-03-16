@@ -74,17 +74,38 @@ the directory exists. The directory inside the container is /app/output.
 
 Example `docker run` using the Wemos D1.
 ```
+mkdir output
 docker run -v ./output:/app/output gbsc-builder
 ```
 
 Example `docker run` using the nodemcu
 ```
+mkdir output
 docker run -v ./output:/app/output gbsc-builder esp8266:esp8266:nodemcu
 ```
 
+### Uploading to ESP8266 microcontroller
+
+Upload the gbs-control.ino.bin binary in your output directory to your microcontroller
+using flashers such as esptool.py, Arduino IDE and arduino-cli.
+
+## Pending enhancements
+
+### Automated Flashing
+
+Since arduino-cli can perform the flashing, forcing the user to manually upload
+is sub-optimal. The next version of this software will include an option for upload 
+using the gbsc-builder container.
+
+### Building from specific commit
+
+Currently the docker image uses the latest commmit in the gbs-control repo's master 
+branch. I plan on enhancing this container to allow the user to specify a branch or commit SHA.
+
+
 ## Help
 
-Message Jeff.L. on the ConsoleMods wiki or email me.
+Message Jeff.L. on the ConsoleMods Discord or email me.
 
 
 ## Version History
@@ -100,3 +121,5 @@ This project is licensed under the Apache License 2.0 - see the LICENSE.txt file
 
 Credits to rama for sharing the [gbs-control firmware](https://github.com/ramapcsx2/gbs-control). I am
 not associated with rama or the gbs-control project.
+
+Thanks for Daroou2 on the ConsoleMods Discord for his feedback.
