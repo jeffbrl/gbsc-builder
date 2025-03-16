@@ -20,6 +20,9 @@ jobs:
     - name: Build gbsc firmware
       run: mkdir $OUTPUT_DIR && docker run -v $OUTPUT_DIR:/app/output jeffbrl/gbsc-builder:$CONTAINER_TAG
 
+    - name: Show dir contents
+      run: ls -la $OUTPUT_DIR
+
     - name: Upload firmware
       uses: actions/upload-artifact@v4
       with:
