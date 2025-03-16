@@ -24,4 +24,4 @@ fi
 
 git clone https://github.com/ramapcsx2/gbs-control.git
 
-/app/bin/arduino-cli compile --fqbn $BOARD gbs-control --output-dir ./
+/app/bin/arduino-cli compile --fqbn $BOARD gbs-control --output-dir /app/output
