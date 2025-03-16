@@ -68,18 +68,18 @@ Note that these are the boards provided by the esp8266 board manager. I suspect
 many of these boards will not work with gbs-control so consult the [gbs-control
 documentation](https://ramapcsx2.github.io/gbs-control/) if you are unsure.
 
-You must mount a directory the container uses to output a binary. The directory
-inside the container is /app/output.
+You must mount a directory the container uses to output a binary. Make sure
+the directory exists. The directory inside the container is /app/output.
 
 
 Example `docker run` using the Wemos D1.
 ```
-docker run -v output:/app/output gbsc-builder
+docker run -v ./output:/app/output gbsc-builder
 ```
 
 Example `docker run` using the nodemcu
 ```
-docker run -v output:/app/output gbsc-builder esp8266:esp8266:nodemcu
+docker run -v ./output:/app/output gbsc-builder esp8266:esp8266:nodemcu
 ```
 
 ## Help
