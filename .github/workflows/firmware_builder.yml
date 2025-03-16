@@ -20,7 +20,7 @@ jobs:
   firmwarebuild:
 
     runs-on: ubuntu-latest
-
+    needs: [ containerbuild ]
     steps:
     - uses: actions/checkout@v4
     - name: Build gbsc firmware
