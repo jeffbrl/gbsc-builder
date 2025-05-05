@@ -75,13 +75,13 @@ the directory exists. The directory inside the container is /app/output.
 Example `docker run` using the Wemos D1.
 ```
 mkdir output
-docker run -v ./output:/app/output gbsc-builder
+docker run -v ./output:/app/output jeffbrl/gbsc-builder
 ```
 
 Example `docker run` using the nodemcu
 ```
 mkdir output
-docker run -v ./output:/app/output gbsc-builder esp8266:esp8266:nodemcu
+docker run -v ./output:/app/output jeffbrl/gbsc-builder esp8266:esp8266:nodemcu
 ```
 
 ### Uploading to ESP8266 microcontroller
